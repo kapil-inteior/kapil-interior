@@ -1,0 +1,102 @@
+import React from 'react';
+import recent from "../assets/recent.jpg"
+import recent1 from "../assets/recent1.jpg"
+import recent3 from "../assets/recent3.jpg"
+import recent2 from "../assets/recent2.webp"
+
+const RecentProjects = () => {
+  // Sample project images - replace with your actual project images
+  const projects = [
+    {
+      id: 1,
+      imageUrl: recent1,
+      size: "medium"
+    },
+    {
+      id: 2,
+      imageUrl: recent2,
+      size: "small"
+    },
+    {
+      id: 3,
+      imageUrl: recent3,
+      size: "small"
+    },
+    {
+      id: 4,
+      imageUrl: recent3,
+      size: "medium"
+    },
+    {
+      id: 5,
+      imageUrl: recent,
+      size: "large"
+    }
+  ];
+
+  return (
+    <div className="bg-[#1c1c1c] py-12 px-4 md:px-8 lg:px-16" id="projects">
+      {/* Title */}
+      <h2 className="text-3xl md:text-4xl text-white font-light text-center mb-12">
+        Recent Projects
+      </h2>
+      
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+        {/* First column - medium project */}
+        <div className="md:col-span-4 lg:col-span-3">
+          <div className="aspect-[3/4] mb-4 md:mb-6">
+            <img 
+              src={projects[0].imageUrl} 
+              alt="Interior design project" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        
+        {/* Middle column - two small projects stacked */}
+        <div className="md:col-span-4 lg:col-span-3">
+          <div className="grid grid-cols-1 gap-4 md:gap-6">
+            <div className="aspect-[4/3]">
+              <img 
+                src={projects[1].imageUrl} 
+                alt="Interior design project" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="aspect-[4/3]">
+              <img 
+                src={projects[3].imageUrl} 
+                alt="Interior design project" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+        
+        {/* Third column - large project */}
+        <div className="md:col-span-4 lg:col-span-6 relative">
+          <div className="aspect-[4/3] lg:aspect-[16/9]">
+            <img 
+              src={projects[4].imageUrl} 
+              alt="Interior design project" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          {/* View All Button */}
+          <div className="absolute bottom-0 right-0">
+            <button
+              className="bg-[#c2b59b] text-[#1c1c1c] px-8 py-4 hover:bg-[#d8c9ab] transition-colors"
+              onClick={() => window.location.href = '/all-projects'}
+            >
+              VIEW ALL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default RecentProjects;
