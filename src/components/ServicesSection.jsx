@@ -1,5 +1,6 @@
 import React from 'react';
-import service from "../assets/service.jpg"
+import service from "../assets/service.webp"
+import service1 from "../assets/service1.webp"
 
 const ServiceItem = ({ title, description, image }) => {
   return (
@@ -61,7 +62,7 @@ export default function ServicesGrid() {
       id: "design-image",
       title: "",
       description: null,
-      image: service
+      image: service1
     },
     {
       id: "color-consultation",
@@ -161,7 +162,7 @@ export default function ServicesGrid() {
           description={placeholderText}
         />
         <ServiceItem 
-          image={service}
+          image={service1}
         />
         
         {/* Second row */}

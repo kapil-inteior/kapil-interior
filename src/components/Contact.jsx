@@ -26,18 +26,46 @@ export default function Contact() {
 
   return (
     <div className="bg-[#242424] text-gray-300 p-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Navigation */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="col-span-1">
+            <h2 className="text-2xl text-gray-300 mb-4">Concepto Studio</h2>
+            <p className="text-gray-300 mb-4">Interior | Architecture | Turnkey</p>
+            <div className="flex items-start">
+              <div className="mr-4 mt-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <a
+                  href="tel:+918861636827"
+                  className="text-gray-300 hover:text-white"
+                >
+                  +91 8861636827
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Second column: Contact details */}
+          <div className="col-span-1">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <h1 className="text-3xl md:text-4xl font-light text-gray-300 mb-6 md:mb-0">
             Contact Us
           </h1>
         </div>
-
-        {/* Main content */}
-        <div className="flex flex-col lg:flex-row lg:space-x-12">
-          {/* Contact details */}
-          <div className="lg:w-1/3 mb-8 lg:mb-0">
             <div className="flex items-start mb-6">
               <div className="mr-4 mt-1">
                 <svg
@@ -96,8 +124,8 @@ export default function Contact() {
                   kaplininterior36@gmail.com
                 </a>
               </div>
+            
             </div>
-
             <div className="flex items-start">
               <div className="mr-4 mt-1">
                 <svg
@@ -126,8 +154,8 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact form */}
-          <div className="lg:w-2/3">
+          {/* Third column: Contact form */}
+          <div className="col-span-1">
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>

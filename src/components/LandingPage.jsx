@@ -1,161 +1,96 @@
-import React, { useState } from "react";
-import { Facebook, Instagram, Music, Menu, X } from "lucide-react";
-import banner from "../assets/banner.jpg";
+import React from "react";
+import { Facebook, Instagram } from "lucide-react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import banner1 from "../assets/banner.jpg"
+import banner2 from "../assets/banner1.jpg"
+import banner3 from "../assets/banner2.png"
 
 export default function LandingPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const slides = [
+    {
+      title: "Kapil's Interior Design",
+      subtitle: "Transforming Spaces into Timeless Elegance",
+      image: banner1,
+    },
+    {
+      title: "Crafting Your Dream Space",
+      subtitle: "Where Imagination Meets Reality",
+      image: banner2,
+    },
+    {
+      title: "Elegant Interiors",
+      subtitle: "Designing Your Perfect Home",
+      image: banner3,
+    },
+  ];
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 bg-black/50 w-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
-      </div>
-
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col min-h-screen w-full">
-        {/* Header/Navigation */}
-        <header className="flex items-center justify-between px-4 md:px-6 py-4 w-full">
-          <div className="text-white font-semibold text-xl">Kapil Interior</div>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <a
-              href="#"
-              className="text-white hover:text-gray-300 text-sm"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("home");
-              }}
-            >
-              HOME
-            </a>
-            <a
-              href="#"
-              className="text-white hover:text-gray-300 text-sm"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("services");
-              }}
-            >
-              SERVICES
-            </a>
-            <a
-              href="#"
-              className="text-white hover:text-gray-300 text-sm"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("projects");
-              }}
-            >
-              PROJECTS
-            </a>
-            <a
-              href="#"
-              className="text-white hover:text-gray-300 text-sm"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("contact");
-              }}
-            >
-              CONTACT
-            </a>
-            <a
-              href="tel:+919740353436"
-              className="border border-white text-white px-4 py-1 text-sm hover:bg-white hover:text-black transition"
-            >
-              CALL NOW
-            </a>
-          </nav>
-
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <div className="absolute top-16 left-0 right-0 bg-black/90 md:hidden">
-              <div className="flex flex-col items-center py-4">
-                <a
-                  href="#"
-                  className="text-white py-2"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("home");
-                  }}
-                >
-                  HOME
-                </a>
-                <a
-                  href="#"
-                  className="text-white py-2"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("services");
-                  }}
-                >
-                  SERVICES
-                </a>
-                <a
-                  href="#"
-                  className="text-white py-2"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("projects");
-                  }}
-                >
-                  PROJECTS
-                </a>
-                <a
-                  href="#"
-                  className="text-white py-2"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("Contact");
-                  }}
-                >
-                  CONTACT
-                </a>
-                <a
-                  href="tel:+919740353436"
-                  className="border border-white text-white px-4 py-1 mt-2"
-                >
-                  CALL NOW
-                </a>
+    <div className="w-full min-h-screen overflow-hidden">
+      {/* Background image with overlay and slider */}
+      <div className="w-full h-screen">
+        <Slider {...settings}>
+          {slides.map((slide, index) => (
+            <div key={index} className="w-full h-screen relative">
+              <div
+                className="w-full h-full bg-cover bg-center bg-no-repeat relative"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              >
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <div className="text-center text-white p-4">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+                      {slide.title}
+                    </h1>
+                    <p className="text-lg sm:text-xl md:text-2xl">
+                      {slide.subtitle}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          )}
-        </header>
-
-        {/* Main hero section */}
-        <div
-          id="home"
-          className="flex-grow flex flex-col justify-center items-center text-center px-4 md:px-6 w-full"
-        >
-          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
-            Kapil's Interior Design
-          </h1>
-          <p className="text-white text-lg sm:text-xl md:text-2xl">
-            Transforming Spaces into Timeless Elegance
-          </p>
-        </div>
+          ))}
+        </Slider>
       </div>
 
       {/* Sticky Social media sidebar */}
       <div className="fixed left-4 md:left-6 bottom-10 z-20 flex flex-col space-y-6">
-        <a href="https://www.facebook.com/profile.php?id=61575027732052" className="text-white hover:text-gray-300"  target="_blank"
-          rel="noopener noreferrer">
+        <a
+          href="https://www.facebook.com/profile.php?id=61575027732052"
+          className="text-white hover:text-gray-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Facebook size={20} />
         </a>
         <a
@@ -181,14 +116,6 @@ export default function LandingPage() {
           Let's Chat!
         </button>
       </div>
-
-      {/* Background image - using a div instead of img for styling purposes */}
-      <div
-        className="absolute inset-0 -z-10 bg-cover bg-center w-full h-full"
-        style={{
-          backgroundImage: `url(${banner})`,
-        }}
-      ></div>
     </div>
   );
 }

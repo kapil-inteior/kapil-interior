@@ -87,8 +87,8 @@ const RecentProjects = () => {
           {/* View All Button */}
           <div className="absolute bottom-0 right-0">
             <button
-              className="bg-[#c2b59b] text-[#1c1c1c] px-8 py-4 hover:bg-[#d8c9ab] transition-colors"
-              onClick={() => window.location.href = '/all-projects'}
+              className="bg-[#c2b59b] text-[#1c1c1c] px-8 py-4 hover:bg-[#d8c9ab] transition-colors cursor-pointer"
+              onClick={() => window.location.href = '/projects'}
             >
               VIEW ALL
             </button>
