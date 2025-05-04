@@ -18,6 +18,8 @@ import StudyTable from "./components/Services/StudyTable";
 import TvUnits from "./components/Services/TvUnits";
 import WallPaint from "./components/Services/WallPaint";
 import Wallpaper from "./components/Services/Wallpaper";
+import Gallery from "./components/Gallery";
+import Card from "./components/Card";
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
             <>
               <LandingPage />
               <RecentProjects />
+              <Card/>
               <ServicesSection />
               <Testimonial />
               <Contact />
@@ -38,6 +41,7 @@ function App() {
         />
 
         <Route path="/projects" element={<AllProjects />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/services/bathroom" element={<Bathroom />} />
         <Route path="/services/crockery-units" element={<Crockery />} />
         <Route path="/services/false-ceiling" element={<FalseCeiling />} />

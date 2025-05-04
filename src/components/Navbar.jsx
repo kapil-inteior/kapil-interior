@@ -34,7 +34,10 @@ export default function Navbar() {
 
   return (
     <header className="flex items-center justify-between px-4 md:px-6 py-4 w-full bg-white/70">
-      <div className="text-black font-semibold text-xl cursor-pointer" onClick={() => handleNavigate("/")}>
+      <div
+        className="text-black font-semibold text-xl cursor-pointer"
+        onClick={() => handleNavigate("/")}
+      >
         <img src={Logo} alt="logo" className="w-28 sm:w-40 md:w-24" />
       </div>
 
@@ -70,7 +73,11 @@ export default function Navbar() {
               {services.map((service, index) => (
                 <button
                   key={index}
-                  onClick={() => handleNavigate(`/services/${service.toLowerCase().replace(/ /g, "-")}`)} // Assuming service pages
+                  onClick={() =>
+                    handleNavigate(
+                      `/services/${service.toLowerCase().replace(/ /g, "-")}`
+                    )
+                  } // Assuming service pages
                   className="text-black hover:text-gray-300 text-sm w-full text-left"
                 >
                   {service}
@@ -85,6 +92,12 @@ export default function Navbar() {
           className="text-black hover:text-gray-300 text-sm"
         >
           PROJECTS
+        </button>
+        <button
+          onClick={() => handleNavigate("/gallery")}
+          className="text-black hover:text-gray-300 text-sm"
+        >
+         GALLERY
         </button>
 
         <button
@@ -121,7 +134,13 @@ export default function Navbar() {
                   {services.map((service, index) => (
                     <button
                       key={index}
-                      onClick={() => handleNavigate(`/services/${service.toLowerCase().replace(/ /g, "-")}`)} // Assuming service pages
+                      onClick={() =>
+                        handleNavigate(
+                          `/services/${service
+                            .toLowerCase()
+                            .replace(/ /g, "-")}`
+                        )
+                      } // Assuming service pages
                       className="text-black hover:text-gray-300 text-sm w-full text-left"
                     >
                       {service}
@@ -136,6 +155,12 @@ export default function Navbar() {
               className="text-black py-2"
             >
               PROJECTS
+            </button>
+            <button
+              onClick={() => handleNavigate("/gallery")}
+              className="text-black py-2"
+            >
+              GALLERY
             </button>
 
             <button

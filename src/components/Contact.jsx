@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -28,10 +29,39 @@ export default function Contact() {
     <div className="bg-[#242424] text-gray-300 p-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="col-span-1">
-            <h2 className="text-2xl text-gray-300 mb-4">Concepto Studio</h2>
-            <p className="text-gray-300 mb-4">Interior | Architecture | Turnkey</p>
-            <div className="flex items-start">
+          {/* First column: Studio info */}
+          <motion.div
+            className="col-span-1"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <motion.h2
+              className="text-2xl text-gray-300 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              Concepto Studio
+            </motion.h2>
+            <motion.p
+              className="text-gray-300 mb-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            >
+              Interior | Architecture | Turnkey
+            </motion.p>
+            <motion.div
+              className="flex items-start"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            >
               <div className="mr-4 mt-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -51,22 +81,40 @@ export default function Contact() {
               <div>
                 <a
                   href="tel:+918861636827"
-                  className="text-gray-300 hover:text-white"
+                  className="text-gray-300 hover| hover:text-white"
                 >
                   +91 8861636827
                 </a>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Second column: Contact details */}
-          <div className="col-span-1">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-          <h1 className="text-3xl md:text-4xl font-light text-gray-300 mb-6 md:mb-0">
-            Contact Us
-          </h1>
-        </div>
-            <div className="flex items-start mb-6">
+          <motion.div
+            className="col-span-1"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          >
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+              <motion.h1
+                className="text-3xl md:text-4xl font-light text-gray-300 mb-6 md:mb-0"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                Contact Us
+              </motion.h1>
+            </div>
+            <motion.div
+              className="flex items-start mb-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            >
               <div className="mr-4 mt-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -95,9 +143,15 @@ export default function Contact() {
                   <p>Opposite Sri Sai Baba Temple, Bangalore, 560043</p>
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex items-start mb-6">
+            <motion.div
+              className="flex items-start mb-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            >
               <div className="mr-4 mt-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -124,9 +178,14 @@ export default function Contact() {
                   kaplininterior36@gmail.com
                 </a>
               </div>
-            
-            </div>
-            <div className="flex items-start">
+            </motion.div>
+            <motion.div
+              className="flex items-start"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+            >
               <div className="mr-4 mt-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -151,14 +210,25 @@ export default function Contact() {
                   +91 9740353436
                 </a>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Third column: Contact form */}
-          <div className="col-span-1">
+          <motion.div
+            className="col-span-1"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          >
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
                   <label htmlFor="firstName" className="text-sm block mb-1">
                     First name
                   </label>
@@ -170,9 +240,14 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-gray-600 py-2 focus:outline-none focus:border-gray-300"
                   />
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                >
                   <label htmlFor="lastName" className="text-sm block mb-1">
                     Last name
                   </label>
@@ -184,10 +259,16 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-gray-600 py-2 focus:outline-none focus:border-gray-300"
                   />
-                </div>
+                </motion.div>
               </div>
 
-              <div className="mb-4">
+              <motion.div
+                className="mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              >
                 <label htmlFor="email" className="text-sm block mb-1">
                   Email <span className="text-red-500">*</span>
                 </label>
@@ -200,10 +281,15 @@ export default function Contact() {
                   required
                   className="w-full bg-transparent border-b border-gray-600 py-2 focus:outline-none focus:border-gray-300"
                 />
-              </div>
+              </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                >
                   <label htmlFor="phone" className="text-sm block mb-1">
                     Phone
                   </label>
@@ -215,9 +301,14 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-gray-600 py-2 focus:outline-none focus:border-gray-300"
                   />
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+                >
                   <label htmlFor="address" className="text-sm block mb-1">
                     Address
                   </label>
@@ -229,17 +320,21 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-gray-600 py-2 focus:outline-none focus:border-gray-300"
                   />
-                </div>
+                </motion.div>
               </div>
 
-              <button
+              <motion.button
                 type="submit"
                 className="w-full bg-transparent border border-gray-600 text-gray-300 py-3 hover:bg-gray-800 transition duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
               >
                 Submit
-              </button>
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
